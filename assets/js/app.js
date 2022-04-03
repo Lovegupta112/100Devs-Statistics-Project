@@ -28,9 +28,26 @@ const data = d3.csv('data/LearnWithLeon stream statistics - ClassData.csv').then
 		}, 0);
 		return x;
 	});
-	console.log(data);
+
+	const minDate = d3.min(data, data => data.date)
+	const maxDate = d3.max(data, data => data.date)
+	const maxACV = d3.max(data, data => data['Average concurrent viewers'])
+
+	// const width = 600
+	// const height = 400
+
+	// const x = d3.scaleTime()
+	// 	.domain([minDate, maxDate])
+	// 	.range([0, width])
+	// const y = d3.scaleLinear()
+	// 	.domain([o, maxACV])
+	// 	.range([height, 0])
+
+	// const xAxis = d3.axisBottom(x)
+	// const yAxis = d3.axisLeft(y)
 	return data;
 });
+
 
 // d3
 // 	.select('.averageConcurrentViewers')
